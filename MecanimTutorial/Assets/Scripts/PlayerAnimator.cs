@@ -45,6 +45,8 @@ public class PlayerAnimator : MonoBehaviour
             m_animator.SetLayerWeight((int)PlayerAnimatorLayer.Walk, 0);
         }
 
+        m_animator.SetBool("IsJump", Input.GetKeyDown(KeyCode.Space));
+
         Vector2 velocity = new Vector2(Input.GetAxis("Horizontal"), Input.GetAxis("Vertical")).normalized;
         m_animator.SetFloat("Xvelocity", velocity.x);
         m_animator.SetFloat("Zvelocity", velocity.y);
