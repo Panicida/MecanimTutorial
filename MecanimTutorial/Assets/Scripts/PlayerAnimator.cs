@@ -13,6 +13,9 @@ public class PlayerAnimator : MonoBehaviour
     [SerializeField]
     private float m_timeToStop = .2f;
 
+    [SerializeField]
+    private ParticleSystem m_particleSystem = default;
+
     private Animator m_animator;
 
     private bool m_isMoving;
@@ -62,6 +65,11 @@ public class PlayerAnimator : MonoBehaviour
         }
 
         m_animator.SetBool("IsMoving", m_isMoving);
+    }
+
+    public void Land()
+    {
+        m_particleSystem.Play();
     }
 
     private void LateUpdate()
